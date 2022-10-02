@@ -30,17 +30,20 @@ const user = [
 
 logIn.addEventListener("click", passWordCheck);
 
+//loop inside users
+
 function passWordCheck() {
-  if (
-    nameInput.value === user[0].name &&
-    passWordInput.value === user[0].password
-  ) {
-    text.innerHTML = "YEY";
-  } else {
-    text.innerHTML = "try again";
+  for (const us of user) {
+    if (nameInput.value === us.name && passWordInput.value === us.password) {
+      text.innerHTML = "YEY";
+    }
   }
+  text.innerHTML = "Wrong Password, please try again";
 }
 
-//loop inside users
+console.log(user[0]);
+
+// new Account function
+function newAccount() {}
 
 // log out function.
