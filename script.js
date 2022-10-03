@@ -30,6 +30,7 @@ const user = [
 //if not correct try again.
 
 logIn.addEventListener("click", passWordCheck);
+NewAcc.addEventListener("click", AddNew);
 //LogOut.addEventListener("click", passWordCheck);
 
 //loop inside users
@@ -44,16 +45,15 @@ function passWordCheck() {
       LogdIn();
     }
   }
-
-  //text.innerHTML = "Wrong Password, please try again";
+  // text.innerHTML = "Wrong Password, please try again";
 }
 
 // function for LogdIN
 
 function LogdIn() {
-  text.innerHTML = "YEY";
-  logIn.style.display = "none";
-  NewAcc.style.display = "none";
+  text.innerHTML = "Yey";
+  form.style.display = "none";
+
   LogOut();
 }
 
@@ -71,7 +71,9 @@ function LogOut() {
   let btnText = document.createTextNode("Log out");
 
   btnLogout.appendChild(btnText);
-  form.appendChild(btnLogout);
+  body.appendChild(btnLogout);
 }
+
+console.log(cont);
 
 // log out function.
