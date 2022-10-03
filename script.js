@@ -4,6 +4,7 @@ const form = document.querySelector(".form");
 const nameInput = document.querySelector(".name");
 const passWordInput = document.querySelector(".password");
 const logIn = document.querySelector(".LoginBtn");
+const NewAcc = document.querySelector(".NewAccount");
 //pick up from html
 
 //array inside object with userse name and password.
@@ -29,21 +30,48 @@ const user = [
 //if not correct try again.
 
 logIn.addEventListener("click", passWordCheck);
+//LogOut.addEventListener("click", passWordCheck);
 
 //loop inside users
 
 function passWordCheck() {
   for (const us of user) {
     if (nameInput.value === us.name && passWordInput.value === us.password) {
-      text.innerHTML = "YEY";
+      // text.innerHTML = "YEY";
+      // logIn.style.display = "none";
+      // NewAcc.style.display = "none";
+      // LogOut();
+      LogdIn();
     }
   }
+
+  //text.innerHTML = "Wrong Password, please try again";
+}
+
+// function for LogdIN
+
+function LogdIn() {
+  text.innerHTML = "YEY";
+  logIn.style.display = "none";
+  NewAcc.style.display = "none";
+  LogOut();
+}
+
+// funtion for tryAgain
+function tryAgain() {
   text.innerHTML = "Wrong Password, please try again";
 }
 
-console.log(user[0]);
-
 // new Account function
-function newAccount() {}
+function AddNew() {}
+
+//function for logOut
+function LogOut() {
+  let btnLogout = document.createElement("button");
+  let btnText = document.createTextNode("Log out");
+
+  btnLogout.appendChild(btnText);
+  form.appendChild(btnLogout);
+}
 
 // log out function.
