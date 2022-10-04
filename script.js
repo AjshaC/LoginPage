@@ -6,12 +6,18 @@ const passWordInput = document.querySelector(".password");
 const logIn = document.querySelector(".LoginBtn");
 const NewAcc = document.querySelector(".NewAccount");
 //pick up from html
+let btnLogout = document.createElement("button");
+let btnText = document.createTextNode("Log out");
+
+logIn.addEventListener("click", passWordCheck);
+NewAcc.addEventListener("click", AddNew);
+btnLogout.addEventListener("click", LogOut);
 
 //array inside object with userse name and password.
 
 const user = [
   {
-    name: "fredrik",
+    name: "Fredrik",
     password: "12345",
   },
 
@@ -26,54 +32,60 @@ const user = [
   },
 ];
 
+//localStorege test
+localStorage.setItem("User", JSON.stringify(user));
+const userLocalStorage = JSON.parse(localStorage.getItem(user));
+//localStorege end
 // function to check if it is correct password
-//if not correct try again.
-
-logIn.addEventListener("click", passWordCheck);
-NewAcc.addEventListener("click", AddNew);
-//LogOut.addEventListener("click", passWordCheck);
-
-//loop inside users
 
 function passWordCheck() {
   for (const us of user) {
     if (nameInput.value === us.name && passWordInput.value === us.password) {
-      // text.innerHTML = "YEY";
-      // logIn.style.display = "none";
-      // NewAcc.style.display = "none";
-      // LogOut();
       LogdIn();
+      return;
     }
   }
-  // text.innerHTML = "Wrong Password, please try again";
+
+  tryAgain();
 }
+
+//localStorage.setItem("userName", nameInput.value);
 
 // function for LogdIN
 
 function LogdIn() {
-  text.innerHTML = "Yey";
+  text.innerHTML = "Yey " + nameInput.value;
   form.style.display = "none";
 
-  LogOut();
+  OutBth();
 }
 
-// funtion for tryAgain
+//funtion for tryAgain
 function tryAgain() {
   text.innerHTML = "Wrong Password, please try again";
 }
 
 // new Account function
-function AddNew() {}
+function AddNew(name, pass) {
+  name = nameInput.value;
+  pass = passWordInput.value;
+  user.push({ name: name, password: pass });
+  userLocalStorage.push(name, pass);
+}
 
 //function for logOut
 function LogOut() {
-  let btnLogout = document.createElement("button");
-  let btnText = document.createTextNode("Log out");
+  text.innerHTML = "Please enter your password";
+  form.style.display = "block";
+  form.style.display = "flex";
+  nameInput.value = "";
+  passWordInput.value = "";
+  btnLogout.style.display = "none";
+}
 
+function OutBth() {
   btnLogout.appendChild(btnText);
   body.appendChild(btnLogout);
 }
-
-console.log(cont);
 
 // log out function.

@@ -1,18 +1,31 @@
 body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: bisque;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("Bg\ .png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .form {
-  background-color: aquamarine;
-  height: 400px;
-  width: 80%;
+  height: 60%;
+  width: 30%;
   display: flex;
   flex-direction: column;
-  align-content: center;
   justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid #ffffffd8;
 }
 
 input {
