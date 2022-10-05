@@ -33,8 +33,8 @@ const user = [
 ];
 
 //localStorege test
-localStorage.setItem("User", JSON.stringify(user));
-const userLocalStorage = JSON.parse(localStorage.getItem(user));
+// localStorage.setItem("User", JSON.stringify(user));
+// const userLocalStorage = JSON.parse(localStorage.getItem(user));
 //localStorege end
 // function to check if it is correct password
 
@@ -49,13 +49,15 @@ function passWordCheck() {
   tryAgain();
 }
 
-//localStorage.setItem("userName", nameInput.value);
-
 // function for LogdIN
+//text.innerHTML = userLocalStorage.getItem("nameInput.value");
 
 function LogdIn() {
-  text.innerHTML = "Yey " + nameInput.value;
+  // text.innerHTML = "Yey " + nameInput.value;
   form.style.display = "none";
+
+  localStorage.setItem("User", JSON.stringify(nameInput.value));
+  //const userLocalStorage = JSON.parse(localStorage.getItem(nameInput.value));
 
   OutBth();
 }
@@ -70,7 +72,7 @@ function AddNew(name, pass) {
   name = nameInput.value;
   pass = passWordInput.value;
   user.push({ name: name, password: pass });
-  userLocalStorage.push(name, pass);
+  // userLocalStorage.push(name, pass);
 }
 
 //function for logOut

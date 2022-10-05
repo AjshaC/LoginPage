@@ -6,9 +6,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("Bg\ .png");
+  background-image: url("Bg.jpg");
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -19,7 +18,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
+input {
+  width: 50%;
+  height: 20px;
+}
+
+.form,
+input,
+button {
+  margin: 10px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -27,14 +36,21 @@ body {
   -webkit-backdrop-filter: blur(5px);
   border: 2px solid #ffffffd8;
 }
-
-input {
-  width: 50%;
+button {
+  width: 35%;
+  height: 8%;
   margin: 10px;
+  background: #7399decd;
+  border: 1px solid #ffffffd8;
+  color: whitesmoke;
+  cursor: pointer;
 }
 
-button {
-  width: 30%;
-  height: 5%;
-  margin: 10px;
+.NewAccount {
+  border: none;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  text-decoration: underline #7399decd;
+  color: #7399decd;
 }
