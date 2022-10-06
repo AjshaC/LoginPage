@@ -7,7 +7,7 @@ Login page
 Users :
 No. 1. Name: Fredrik, password: 12345
 No. 2. Name: Maja, password: 23456
-No. 3. name: Calla, password34567
+No. 3. name: Calla, password: 34567
 
 To create an account:
 step 1. Choose a name
