@@ -66,7 +66,7 @@ function passWordCheck() {
 
 function LogdIn() {
   const logIn = localStorage.getItem("isLoggedIn");
-  text.innerHTML = "Hii" + logIn;
+  text.innerHTML = "Hii " + logIn;
   form.style.display = "none";
   LogaOutBtn.style.display = "block";
 
