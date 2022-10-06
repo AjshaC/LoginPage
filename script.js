@@ -5,13 +5,22 @@ const nameInput = document.querySelector(".name");
 const passWordInput = document.querySelector(".password");
 const logIn = document.querySelector(".LoginBtn");
 const NewAcc = document.querySelector(".NewAccount");
+const LogaOutBtn = document.querySelector(".Out");
+LogaOutBtn.style.display = "none";
 //pick up from html
-let btnLogout = document.createElement("button");
-let btnText = document.createTextNode("Log out");
 
 logIn.addEventListener("click", passWordCheck);
 NewAcc.addEventListener("click", AddNew);
-btnLogout.addEventListener("click", LogOut);
+//btnLogout.addEventListener("click", LogOut);
+LogaOutBtn.addEventListener("click", LogOut);
+
+function init() {
+  if (localStorage.getItem("isLoggedIn")) {
+    LogdIn();
+  }
+}
+
+init();
 
 //array inside object with userse name and password.
 
@@ -41,7 +50,10 @@ const user = [
 function passWordCheck() {
   for (const us of user) {
     if (nameInput.value === us.name && passWordInput.value === us.password) {
+      const userLogin = us.name;
+      localStorage.setItem("isLoggedIn", userLogin);
       LogdIn();
+      //localStorage.setItem("isLoggedIn", JSON.stringify(true));
       return;
     }
   }
@@ -53,13 +65,12 @@ function passWordCheck() {
 //text.innerHTML = userLocalStorage.getItem("nameInput.value");
 
 function LogdIn() {
-  // text.innerHTML = "Yey " + nameInput.value;
+  const logIn = localStorage.getItem("isLoggedIn");
+  text.innerHTML = "Hii" + logIn;
   form.style.display = "none";
+  LogaOutBtn.style.display = "block";
 
-  localStorage.setItem("User", JSON.stringify(nameInput.value));
-  //const userLocalStorage = JSON.parse(localStorage.getItem(nameInput.value));
-
-  OutBth();
+  // localStorage.setItem("User", JSON.stringify(nameInput.value));
 }
 
 //funtion for tryAgain
@@ -82,12 +93,10 @@ function LogOut() {
   form.style.display = "flex";
   nameInput.value = "";
   passWordInput.value = "";
-  btnLogout.style.display = "none";
-}
+  LogaOutBtn.style.display = "none";
+  localStorage.removeItem("isLoggedIn");
 
-function OutBth() {
-  btnLogout.appendChild(btnText);
-  body.appendChild(btnLogout);
+  //localStorage.removeItem("User");
 }
 
 // log out function.
